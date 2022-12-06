@@ -1,13 +1,69 @@
-body {
+body,
+html {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  height: 100%;
+  overflow: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.flex-dr {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.css-3b8a0t-MuiContainer-root {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  min-height: 100%;
+}
+
+.css-1w75ha2-MuiContainer-root {
+  max-width: 760px !important;
+
+  color: #494949;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.input-style {
+  border-color: #c4c4c4 !important;
+}
+
+.input-style:hover {
+  outline: none !important;
+  border-color: #676767 !important;
+}
+
+.input-style:focus {
+  outline: none !important;
+  border-color: #0072e5 !important;
 }
