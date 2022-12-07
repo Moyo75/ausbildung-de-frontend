@@ -42,7 +42,7 @@ export default function DeleteArticle() {
         <h3
           style={{
             color: "#6e6e6e",
-            fontSize: "1.2rem",
+            fontSize: "1.6rem",
             fontWeight: "600",
             lineHeight: "1.8",
             letterSpacing: "1.3",
@@ -62,7 +62,8 @@ export default function DeleteArticle() {
         style={{
           marginTop: "0",
           marginBottom: "20px",
-          color: "#494949",
+          color: "#6e6e6e",
+          fontSize: "1.1rem",
           fontWeight: "600",
           lineHeight: "1.8",
           letterSpacing: "1.1",
@@ -72,7 +73,7 @@ export default function DeleteArticle() {
         <ReactMarkdown
           children={`#### ${
             content.length > 200
-              ? content.substring(1, 199).trim() + "..."
+              ? content.substring(0, 199).trim() + "..."
               : content
           }`}
         />

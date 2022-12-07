@@ -22,7 +22,7 @@ export default function Header({ articles, setSearch, search }) {
       <input
         value={search}
         className={"search"}
-        autocomplete="off"
+        autoComplete="off"
         id="outlined-basic"
         placeholder="filter..."
         onChange={(event) => setSearch(event.target.value)}

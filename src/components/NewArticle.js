@@ -46,7 +46,7 @@ function NewArticle() {
         navigate("/");
       })
       .catch((error) => {
-        alert(error);
+        alert("Error: ", error);
         navigate("/");
       });
   };
