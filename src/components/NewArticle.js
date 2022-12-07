@@ -12,18 +12,6 @@ import { useNavigate } from "react-router-dom";
 const url = "https://ausbildung-blog-api-production.up.railway.app/articles/";
 
 function NewArticle() {
-  // const style = {
-  //   position: "absolute",
-  //   top: "50%",
-  //   left: "50%",
-  //   transform: "translate(-50%, -50%)",
-  //   width: 400,
-  //   bgcolor: "background.paper",
-  //   border: "2px solid #000",
-  //   boxShadow: 24,
-  //   p: 4,
-  // };
-
   const navigate = useNavigate();
 
   const buzzWords = [
@@ -37,6 +25,7 @@ function NewArticle() {
     { title: "angular" },
     { title: "devops" },
     { title: "git" },
+    { title: "UI" },
   ];
 
   const handleFormSubmit = (event) => {

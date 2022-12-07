@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -12,7 +12,6 @@ export default function DeleteArticle() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [open, setOpen] = useState(false);
   console.log("Delete: ", location);
   const { id, content } = location.state;
 

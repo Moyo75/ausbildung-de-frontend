@@ -6,8 +6,6 @@ import TextField from "@mui/material/TextField";
 import TextareaAutosize from "@mui/material/TextareaAutosize";
 import Stack from "@mui/material/Stack";
 
-// import { FormProvider, Controller } from "react-hook-form";
-
 import { useLocation, useNavigate } from "react-router-dom";
 
 const url = "https://ausbildung-blog-api-production.up.railway.app/articles/";
@@ -18,20 +16,12 @@ export default function UpdateArticle() {
 
   const { id, title, content, tags } = location.state;
 
-  const [updatedTitle, setUpdatedTitle] = useState("");
-  const [updatedContent, setUpdatedContent] = useState("");
+  const [updatedTitle, setUpdatedTitle] = useState(title);
+  const [updatedContent, setUpdatedContent] = useState(content);
   const [updatedTags, setUpdatedTags] = useState([]);
 
   const handleUpdate = (event) => {
     event.preventDefault();
-
-    console.log(
-      JSON.stringify({
-        title: title,
-        content: content,
-        tags: updatedTags,
-      })
-    );
 
     fetch(url + id, {
       method: "PUT",
@@ -40,8 +30,8 @@ export default function UpdateArticle() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: title,
-        content: content,
+        title: updatedTitle,
+        content: updatedContent,
         tags: updatedTags,
       }),
     })
@@ -71,17 +61,12 @@ export default function UpdateArticle() {
     { title: "postwoman" },
     { title: "ipsum" },
     { title: "dolor" },
+    { title: "try-catch" },
   ];
-
-  //const oldTags = tags.map((tag) => ({ title: tag }));
-
-  // console.log(oldTags);
 
   const handleTags = (_, value) => {
     let result = value.map(({ title }) => title);
     setUpdatedTags(result);
-
-    //console.log(event);
   };
 
   return (
@@ -90,7 +75,6 @@ export default function UpdateArticle() {
         className={"flex flex-dr ai-c jc-c"}
         style={{ paddingBottom: "20px", height: "35px" }}
       >
-        {" "}
         <h3
           style={{
             color: "#6e6e6e",
@@ -110,8 +94,9 @@ export default function UpdateArticle() {
       <form onSubmit={handleUpdate}>
         <TextField
           className="input-style"
-          value={title ? title : ""}
+          value={updatedTitle}
           style={{
+            borderRadius: "4px",
             marginBottom: "30px",
             width: "100%",
             color: "#6e6e6e",
@@ -124,12 +109,11 @@ export default function UpdateArticle() {
           id="outlined-basic"
           label="Title"
           variant="outlined"
-          required
           onChange={(event) => setUpdatedTitle(event.target.value)}
         />
         <TextareaAutosize
           className="input-style"
-          value={content ? content : ""}
+          value={updatedContent}
           style={{
             marginBottom: "30px",
             width: "98%",

@@ -13,8 +13,8 @@ export default function ArticlesContainer({ articles, setArticles, search }) {
     >
       {articles ? (
         articles
-          .filter(({ title }) =>
-            title.toLowerCase().includes(search.toLowerCase())
+          .filter(({ title, content }) =>
+            (title + content).toLowerCase().includes(search.toLowerCase())
           )
           .map((article, index) => (
             <ArticleCard

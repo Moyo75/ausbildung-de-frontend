@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 import slugify from "slugify";
@@ -11,21 +11,11 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import DeleteIcon from "@mui/icons-material/Delete";
 import UpgradeIcon from "@mui/icons-material/Upgrade";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
 
 import ReactMarkdown from "react-markdown";
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-// const url = "https://ausbildung-blog-api-production.up.railway.app/articles/";
-
 export default function ArticleCard({ article, setArticles }) {
-  // console.log(article);
-
-  const { id, title, content } = article;
+  const { title, content } = article;
 
   return (
     <div>
@@ -49,7 +39,9 @@ export default function ArticleCard({ article, setArticles }) {
           >
             <ReactMarkdown
               children={`### ${
-                title.length > 40 ? title.substring(1, 40).toUpperCase() : title
+                title.length > 40
+                  ? `${title.substring(0, 40).trim()}...`
+                  : title
               }`}
             />
           </Typography>
@@ -68,7 +60,7 @@ export default function ArticleCard({ article, setArticles }) {
             <ReactMarkdown
               children={`### ${
                 content.length > 200
-                  ? content.substring(0, 199).trim() + "..."
+                  ? `${content.substring(0, 199).trim()}...`
                   : content
               }`}
             />
@@ -110,11 +102,6 @@ export default function ArticleCard({ article, setArticles }) {
           </Stack>
         </CardActions>
       </Card>
-      {/* <Snackbar open={open} autoHideDuration={6000}>
-        <Alert severity="success" sx={{ width: "100%" }}>
-          Article deleted successfully
-        </Alert>
-      </Snackbar> */}
     </div>
   );
 }
